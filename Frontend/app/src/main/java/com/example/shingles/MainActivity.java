@@ -72,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ftransaction = fmanager.beginTransaction();
         ftransaction.replace(R.id.mainFragmentLayout, searchFragment).commitAllowingStateLoss();
     }
+    public void onChangeToHomeFragment(){
+        FragmentTransaction ftransaction = fmanager.beginTransaction();
+        ftransaction.replace(R.id.mainFragmentLayout, homeFragment).commitAllowingStateLoss();
+    }
 
 //    @Override
 //    protected void onRestart() {

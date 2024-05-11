@@ -2,8 +2,7 @@ package com.example.shingles;
 
 import java.io.Serializable;
 
-public class StudioData implements Serializable {
-    private boolean heart;
+public class RoomData implements Serializable {
     private String one_discount;
     private String two_discount;
     private String one_account;
@@ -16,13 +15,7 @@ public class StudioData implements Serializable {
         this.image_url = image_url;
     }
 
-    public boolean isHeart() {
-        return heart;
-    }
 
-    public void setHeart(boolean heart) {
-        this.heart = heart;
-    }
 
     public String getImage_url() {
         return image_url;

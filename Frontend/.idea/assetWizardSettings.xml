@@ -14,8 +14,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="good_icon" />
-                            <entry key="sourceFile" value="$PROJECT_DIR$/../../../Vector.svg" />
+                            <entry key="outputName" value="calendar_icon" />
+                            <entry key="sourceFile" value="$PROJECT_DIR$/../../../calendar_icon.svg" />
                           </map>
                         </option>
                       </PersistentState>
