@@ -4,6 +4,12 @@ from django.contrib.auth import authenticate
 
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
+from .models import Favorite
+
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorite
+        fields = ('location')
 
 class LoginSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=True)
