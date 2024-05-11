@@ -15,10 +15,10 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="185dp"
-        android:background="@drawable/plusM_logo"
+        android:background="@drawable/plusm_logo"
         />
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/rectangle_1"
+        android:id="@+id/start_login_button"
         android:layout_width="244dp"
         android:layout_height="41dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,17 +31,19 @@
         android:background="@drawable/activated_button"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/rectangle_2"
+        android:id="@+id/start_join_button"
         android:layout_width="244dp"
         android:layout_height="41dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_1"
+        app:layout_constraintTop_toTopOf="@id/start_login_button"
         android:layout_marginTop="50dp"
         android:text="회원가입"
         android:fontFamily="@font/gmarketsansttfmedium"
         android:textColor="@color/main_color"
         android:background="@drawable/deactivated_button"
         />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

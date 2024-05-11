@@ -2,39 +2,87 @@ package com.example.shingles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
+
+import javax.xml.transform.Result;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+    final String baseUrl = "https://e44e-219-255-158-170.ngrok-free.app";
     private EditText idText, passwordText;
-    public TextView joinText;
+    private NetworkService mNetworkService;
+    private String id = "test";
+    private String password = "test1234";
     private Button login_Button;
-    String id, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
         idText = findViewById(R.id.login_id);
         passwordText = findViewById(R.id.login_pw);
-        login_Button = findViewById(R.id.login_page_button);
-        joinText = findViewById(R.id.login_join_text);
+        login_Button = findViewById(R.id.login_page_button2);
 
-        if(joinText == null){
-            Log.i("dk", "djdjdjjd");
-        }
-        joinText.setOnClickListener(this);
+        login_Button.setOnClickListener(this);
 
-        setContentView(R.layout.activity_login);
+        ApplicationController application = ApplicationController.getInstance();
+        application.buildNetworkService(baseUrl);
+        mNetworkService = ApplicationController.getInstance().getNetworkService();
     }
 
 
     @Override
     public void onClick(View view) {
-        if (view == joinText){
+        if (view == login_Button){
+            if( id.equals(idText.getText().toString()) && password.equals(passwordText.getText().toString() )){
+//                Intent intent = new Intent(this, );
+//                startActivity(intent);
+            } else {
+                Toast toast = Toast.makeText(LoginActivity.this, "비밀번호가 다릅니다.", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+
+//            JoinItem item = new JoinItem();
+//
+//            item.setUsername(idText.getText().toString());
+//            item.setPassword(passwordText.getText().toString());
+//
+//            Call<PersonItem> postCall = mNetworkService.login_persons(item);
+//            postCall.enqueue(new Callback<PersonItem>() {
+//                @Override
+//                public void onResponse(Call<PersonItem> call, Response<PersonItem> response) {
+//                    if(response.isSuccessful()){
+//                        Log.d("Backend : ","등록 완료");
+//                        Log.d("Backend : ","Respose body : " + response.raw());
+//                        Log.d("Backend : ","Respose body : " + response.body().getTocken());
+//                    } else{
+//                        Log.d("Backend : ","Status Code : " + response.code());
+//                        Log.d("Backend : ",response.errorBody().toString());
+//                        Log.d("Backend : ",call.request().body().toString());
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<PersonItem> call, Throwable t) {
+//                    Log.d("Backend : ","Fail msg : " + t.getMessage());
+//                }
+//            });
 
         }
     }
