@@ -32,6 +32,5 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             Intent intent = new Intent(StartActivity.this, JoinActivity.class);
             startActivity(intent);
         }
-
     }
 }
