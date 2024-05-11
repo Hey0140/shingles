@@ -1,20 +1,28 @@
 package com.example.shingles;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class JoinData {
-    private String id;
+    private String username;
     private String password;
 
-    String getId(){
-        return id;
+    JoinData(){
+        this.username = "";
+        this.password = "";
+    }
+
+    String getUsername(){
+        return username;
     }
     String getPassword(){
         return password;
     }
-    void setId(String id){
-        id = id;
+    void setUsername(String username){
+        this.username = username;
     }
     void setPassword(String password){
-        password = password;
+        this.password = password;
     }
 
 }
