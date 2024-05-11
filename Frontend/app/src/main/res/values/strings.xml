@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Shingles</string>
+    <string name="underlined_text"><u>아이디/비밀번호</u></string>
 </resources>

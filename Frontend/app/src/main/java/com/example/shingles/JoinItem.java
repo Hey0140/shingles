@@ -1,13 +1,11 @@
 package com.example.shingles;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-public class JoinData {
+public class JoinItem {
     private String username;
     private String password;
+    private String tocken;
 
-    JoinData(){
+    JoinItem(){
         this.username = "";
         this.password = "";
     }
@@ -18,6 +16,12 @@ public class JoinData {
     String getPassword(){
         return password;
     }
+    String getTocken(){return tocken;}
+
+    public void setTocken(String tocken) {
+        this.tocken = tocken;
+    }
+
     void setUsername(String username){
         this.username = username;
     }
