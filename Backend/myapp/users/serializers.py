@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate
 
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
-from rest_framework.validators import UniqueValidator
 
 class LoginSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=True)
@@ -16,7 +15,7 @@ class LoginSerializer(serializers.ModelSerializer):
             token = Token.objects.get(user=user)
             return token
         raise serializers.ValidationError(
-            {}
+            {"error" : "아이디 또는 비밀번호가 올바르지 않습니다."}
         )
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -25,25 +24,14 @@ class RegisterSerializer(serializers.ModelSerializer):
         required=True,
         validators=[validate_password],
     )
-    password2 = serializers.CharField(
-        write_only=True,
-        required=True,
-    )
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'password2')
-
-    def validate(self, data):
-        if data['password'] != data['password2']:
-            raise serializers.ValidationError(
-                {"password": "Password fields didn't match."}
-            )
-        return data
+        fields = ('username', 'password')
     
     def create(self, validated_data):
         user = User.objects.create_user(
-            username = validated_data['username'],
+            username = validated_data['username']
         )
 
         user.set_password(validated_data['password'])
