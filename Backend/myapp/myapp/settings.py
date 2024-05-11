@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'mainpage',
     'rest_framework.authtoken',
     'users',
+    'locations',
     'corsheaders',
 ]
 
@@ -133,3 +134,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
