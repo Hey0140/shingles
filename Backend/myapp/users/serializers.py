@@ -21,6 +21,8 @@ class LoginSerializer(serializers.ModelSerializer):
         raise serializers.ValidationError(
             {"error" : "아이디 또는 비밀번호가 올바르지 않습니다."}
         )
+        
+        
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
