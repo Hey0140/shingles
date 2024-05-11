@@ -1,6 +1,7 @@
 package com.example.shingles;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     final String baseUrl = "https://e44e-219-255-158-170.ngrok-free.app";
+    private CardView cardView;
     private EditText idText, passwordText;
     private NetworkService mNetworkService;
     private String id = "test";
@@ -51,8 +53,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == login_Button){
             if( id.equals(idText.getText().toString()) && password.equals(passwordText.getText().toString() )){
-//                Intent intent = new Intent(this, );
-//                startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             } else {
                 Toast toast = Toast.makeText(LoginActivity.this, "비밀번호가 다릅니다.", Toast.LENGTH_SHORT);
                 toast.show();

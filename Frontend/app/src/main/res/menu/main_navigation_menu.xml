@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeIcon"
+        android:enabled="true"
+        android:title="홈"
+        android:icon="@drawable/menu_home_icon"
+        android:iconTint="@color/grey"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/searchIcon"
+        android:enabled="true"
+        android:title="검색"
+        android:icon="@drawable/menu_search_icon"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/reserveIcon"
+        android:enabled="true"
+        android:title="예약 내역"
+        android:icon="@drawable/menu_reserve_icon"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/groupIcon"
+        android:enabled="true"
+        android:title="그룹"
+        android:icon="@drawable/menu_group_icon"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/mypageIcon"
+        android:enabled="true"
+        android:title="마이페이지"
+        android:icon="@drawable/menu_mypage_icon"
+        app:showAsAction="always"
+        />
+</menu>
