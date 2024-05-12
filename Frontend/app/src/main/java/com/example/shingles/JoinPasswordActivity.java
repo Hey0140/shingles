@@ -79,31 +79,31 @@ public class JoinPasswordActivity extends AppCompatActivity implements View.OnCl
                 Intent intent = new Intent(JoinPasswordActivity.this, StartActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
-//                JoinItem item = new JoinItem();
-//                item.setUsername(id);
-//                item.setPassword(password);
-//
-//                Call<JoinItem> postCall = mNetworkService.post_persons(item);
-//                postCall.enqueue(new Callback<JoinItem>() {
-//                    @Override
-//                    public void onResponse(Call<JoinItem> call, Response<JoinItem> response) {
-//                        if(response.isSuccessful()){
-//                            Log.d("Backend : ","등록 완료");
-//                            Log.d("Backend : ","Respose body : " + response.body().toString());
-//
-//                        }else {
-//                            Log.d("Backend : ","Status Code : " + response.code());
-//                            Log.d("Backend : ",response.errorBody().toString());
-//                            Log.d("Backend : ",call.request().body().toString());
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<JoinItem> call, Throwable t) {
-//                        Log.d(tag,"Fail msg : " + t.getMessage());
-//                    }
-//
-//                });
+                JoinItem item = new JoinItem();
+                item.setUsername(id);
+                item.setPassword(password);
+
+                Call<JoinItem> postCall = mNetworkService.post_persons(item);
+                postCall.enqueue(new Callback<JoinItem>() {
+                    @Override
+                    public void onResponse(Call<JoinItem> call, Response<JoinItem> response) {
+                        if(response.isSuccessful()){
+                            Log.d("Backend : ","등록 완료");
+                            Log.d("Backend : ","Respose body : " + response.body().toString());
+
+                        }else {
+                            Log.d("Backend : ","Status Code : " + response.code());
+                            Log.d("Backend : ",response.errorBody().toString());
+                            Log.d("Backend : ",call.request().body().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<JoinItem> call, Throwable t) {
+                        Log.d(tag,"Fail msg : " + t.getMessage());
+                    }
+
+                });
 
             } else{
                 Log.d(tag,"안맞음");
