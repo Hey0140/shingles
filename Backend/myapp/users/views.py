@@ -1,9 +1,25 @@
 from django.contrib.auth.models import User
+from rest_framework import viewsets
 from rest_framework import generics, status
 from rest_framework.response import Response
-import json
+from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+from rest_framework.generics import get_object_or_404
 
-from .serializers import RegisterSerializer, LoginSerializer
+from .serializers import RegisterSerializer, LoginSerializer, FavoriteSerializer, UserSerializer
+from .models import Favorite
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class FavoriteAPI(APIView):
+    def get(self, request):
+        #즐겨찾기 모든 장소 제공. 앞단에서 있는지 확인 하며 등록
+        favorites = Favorite.objects.all()
+        serializer = FavoriteSerializer(favorites, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()

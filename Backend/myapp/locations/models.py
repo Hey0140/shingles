@@ -7,6 +7,7 @@ class Location(models.Model):
     opentime=models.TextField(blank=True)
     call=models.TextField(blank=True)
     image=models.ImageField(upload_to='location/', default='default.png')
+    price=models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
