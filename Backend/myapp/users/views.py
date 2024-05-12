@@ -1,12 +1,17 @@
 from django.contrib.auth.models import User
+from rest_framework import viewsets
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.generics import get_object_or_404
 
-from .serializers import RegisterSerializer, LoginSerializer, FavoriteSerializer
+from .serializers import RegisterSerializer, LoginSerializer, FavoriteSerializer, UserSerializer
 from .models import Favorite
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 class FavoriteAPI(APIView):
     def get(self, request):
