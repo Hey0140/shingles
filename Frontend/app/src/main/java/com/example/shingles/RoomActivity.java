@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RoomActivity extends AppCompatActivity {
+public class RoomActivity extends AppCompatActivity implements View.OnClickListener {
+    ImageView room_back_icon;
     private StudioData studioData;
     private TextView room_name;
     private RoomAdapter adapter;
@@ -34,6 +35,9 @@ public class RoomActivity extends AppCompatActivity {
             roomlist.add(tempRoom);
         }
 
+        room_back_icon = findViewById(R.id.room_back_icon);
+        room_back_icon.setOnClickListener(this);
+
         RecyclerView recyclerView = findViewById(R.id.room_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
         adapter = new RoomAdapter(roomlist);
@@ -42,9 +46,16 @@ public class RoomActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new RoomAdapter.OnListItemSelected() {
             @Override
             public void onItemSelected(View v, int position) {
-//                Intent intent = new Intent(this, );
-//                startActivity(intent);
+                Intent intent = new Intent(RoomActivity.this, RoomReserveActivity.class);
+                startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == room_back_icon){
+            finish();
+        }
     }
 }
