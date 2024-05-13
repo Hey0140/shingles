@@ -14,7 +14,7 @@ public interface NetworkService {
     @POST("/users/register/")
     Call<JoinItem> post_persons(@Body JoinItem person);
     @Headers("Content-type: application/json")
-    @GET("/users/login/")
+    @POST("/users/login/")
     Call<PersonItem> login_persons(@Body JoinItem person);
 
     @PATCH("/posts/{pk}/")
