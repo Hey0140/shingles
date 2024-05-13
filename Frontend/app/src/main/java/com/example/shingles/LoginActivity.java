@@ -66,24 +66,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             item.setPassword(passwordText.getText().toString());
 
 
-//            Call<JoinItem> postCall = mNetworkService.post_persons(item);
-//            postCall.enqueue(new Callback<JoinItem>() {
-//                @Override
-//                public void onResponse(Call<JoinItem> call, Response<JoinItem> response) {
-//                    if(response.isSuccessful()){
-//                        Log.d("Backend : ","등록 완료");
-//                        Log.d("Backend : ","Respose body : " + response.body().toString());
-//                    }else {
-//                        Log.d("Backend : ","Status Code : " + response.code());
-//                        Log.d("Backend : ",response.errorBody().toString());
-//                        Log.d("Backend : ",call.request().body().toString());
-//                    }
-//                }
-//                @Override
-//                public void onFailure(Call<JoinItem> call, Throwable t) {
-//                    Log.d("Backend : ","Fail msg : " + t.getMessage());
-//                }
-//            });
+            Call<PersonItem> getCall = mNetworkService.login_persons(item);
+            getCall.enqueue(new Callback<PersonItem>() {
+                @Override
+                public void onResponse(Call<PersonItem> call, Response<PersonItem> response) {
+                    if(response.isSuccessful()) {
+                        Log.d("Backend : ","등록 완료");
+                        Log.d("Backend : ","Respose body : " + response.raw());
+                        Log.d("Backend : ","Respose body : " + response.body().getTocken());
+                    } else{
+                        Log.d("Backend : ","Status Code : " + response.code());
+                        Log.d("Backend : ",response.errorBody().toString());
+                        Log.d("Backend : ",call.request().body().toString());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<PersonItem> call, Throwable t) {
+                    Log.d("Backend : ","Fail msg : " + t.getMessage());
+                }
+            });
 
 
 //            Call<PersonItem> postCall = mNetworkService.login_persons(item);

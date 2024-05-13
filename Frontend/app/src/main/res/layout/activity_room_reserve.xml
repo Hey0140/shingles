@@ -174,7 +174,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\n\n++주의 사항++\n예약 인원수를 꼭 체크해 주세요.\n음식물 반입 금지입니다.\n대여품 무단 사용 불가합니다.\n현장에서 인원 추가 및 대여품 사용 원하실 땐 연락 부탁 드립니다.\n\n즉시 퇴실 및 향후 대관이 불가합니다.\n\n*환불규정 안내\n이용 5일 전 총 금액의 100%\n이용 4일 전 총 금액의 80%\n이용 3일 전 총 금액의 60%\n이용 2일 전 총 금액의 40%\n이용 전날 환불 불가\n이용 당일 환불 불가"
+                android:text="\n\n++주의 사항++\n예약 인원수를 꼭 체크해 주세요.\n음식물 반입 금지입니다.\n대여품 무단 사용 불가합니다.\n현장에서 인원 추가 및 대여품 사용 원하실 땐 연락 부탁 드립니다.\n\n즉시 퇴실 및 향후 대관이 불가합니다.\n\n*환불규정 안내\n이용 5일 전 총 금액의 100%\n이용 4일 전 총 금액의 80%\n이용 3일 전 총 금액의 60%\n이용 2일 전 총 금액의 40%\n이용 전날 환불 불가\n이용 당일 환불 불가\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
                 android:textAlignment="center"
                 app:layout_constraintTop_toBottomOf="@id/room_reserve_checkbox"
                 />
@@ -211,9 +211,6 @@
         android:fontFamily="@font/gmarket"
         android:textSize="15dp"
         android:background="@drawable/none_background_reserve_page"/>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
